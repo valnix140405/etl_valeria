@@ -1,0 +1,16 @@
+# Airflow core (versión específica)
+apache-airflow==2.8.1
+
+# MongoDB
+pymongo
+
+# Transformaciones y manipulación de datos
+pandas
+numpy
+
+# Dashboard
+streamlit
+plotly
+
+# Para llamadas a APIs
+requests

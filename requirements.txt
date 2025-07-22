@@ -1,0 +1,7 @@
+pymongo
+requests
+apache-airflow
+streamlit
+pandas
+plotly
+matplotlib
