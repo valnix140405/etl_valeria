@@ -203,7 +203,7 @@ The DAG flow is illustrated below:
 
 ### 🔁 DAG Structure
 
-![ETL DAG Graph](images\dag_pipeline.png)
+![ETL DAG Graph](images/dag_pipeline.png)
 
 ## 🧠 MongoDB Collections Overview
 
