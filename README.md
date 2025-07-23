@@ -99,23 +99,69 @@ MongoDB is the main storage for both raw and transformed datasets from the APIs.
 - `processed_worldbank`  
 - `processed_worldbank_country`  
 
-## ⚙️ How to Run
+## 🚀 How to Run
 
-1. ```bash
-   git clone https://github.com/valnix140405/etl_valeria.git
-   cd etl_valeria
+### ✅ Prerequisites
 
+Make sure you have the following installed:
 
-2. Set API credentials:
-   - `OPENWEATHER_API_KEY`
-   - `GEONAMES_USERNAME`
+- [Git](https://git-scm.com/download/win) → Check with `git --version`
+- [Python 3.x](https://www.python.org/downloads/windows/) → Check with `python --version`
+- [Visual Studio Code](https://code.visualstudio.com/)
+- [Docker Desktop](https://www.docker.com/products/docker-desktop/)
 
-3. Start services:
-   docker-compose up --build -d
+---
 
-4. Initialize Airflow (first time only):
-   docker-compose exec airflow-webserver airflow db init
+### 🧩 Steps to Run the Project
 
+```bash
+# 1. Clone the repository
+git clone https://github.com/valnix140405/etl_valeria.git
+cd etl_valeria
+
+# 2. Start the services with Docker
+docker-compose up --build -d
+
+# 3. (First time only) Initialize Airflow database
+docker-compose exec airflow-webserver airflow db init
+
+# 4. Open the project in VS Code (optional)
+code .
+```
+---
+
+### 🌀 Initialize Airflow (First-Time Setup)
+
+Run the following commands **only the first time** you set up the project:
+
+```bash
+# Initialize Airflow database
+docker-compose exec airflow-webserver airflow db init
+
+# Create Airflow admin user
+docker-compose exec airflow-webserver airflow users create \
+    --username admin \
+    --password admin \
+    --firstname Admin \
+    --lastname User \
+    --role Admin \
+    --email admin@example.com
+```
+
+### 🧠 Useful Docker Commands
+
+# Stop all containers
+```bash
+docker-compose down
+```
+# Restart services without rebuilding
+```bash
+docker-compose up -d
+```
+# Rebuild everything from scratch (including volumes)
+```bash
+docker-compose down --volumes && docker-compose up --build -d
+```
 ## Accessing the Interfaces
 
 Airflow Web UI: http://localhost:8080  
@@ -123,8 +169,8 @@ Login: airflow / airflow
 
 Streamlit Dashboard: http://localhost:8501
 
-MongoDB (optional external access):Port 27017
-MongoDB (optional local access):Port 27018
+- MongoDB (optional external access):Port 27017
+- MongoDB (optional local access):Port 27018
 
 ## Triggering the DAG and Viewing Logs
 
